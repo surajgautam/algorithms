@@ -15,8 +15,8 @@ public class GCD {
 
     public int calculateWithNaiveSolution(){
         int result = 0;
-        for (int i = 0; i < this.firstNumber + this.secondNumber ; i++) {
-            if((this.firstNumber%i==0) && (this.secondNumber==0)){
+        for (int i = 2; i < this.firstNumber + this.secondNumber ; i++) {
+            if((this.firstNumber%i==0) && (this.secondNumber%i==0)){
                 result = i;
             }
         }
