@@ -5,27 +5,24 @@ package com.surajgautam.algorithms;
  */
 public class GCD {
 
-    private int firstNumber;
-    private int secondNumber;
-
-    public GCD(int firstNumber, int secondNumber) {
-        this.firstNumber = firstNumber;
-        this.secondNumber = secondNumber;
-    }
-
-    public int calculateWithNaiveSolution(){
+    public int calculateWithNaiveSolution(int firstNumber, int secondNumber){
         int result = 0;
-        for (int i = 2; i < this.firstNumber + this.secondNumber ; i++) {
-            if((this.firstNumber%i==0) && (this.secondNumber%i==0)){
+        for (int i = 2; i < firstNumber + secondNumber ; i++) {
+            if((firstNumber%i==0) && (secondNumber%i==0)){
                 result = i;
             }
         }
         return result;
     }
 
+    public int calculateWithEuclideanAlgorithm(int a, int b){
+       // GCD(a,b) = GCD(a', b) = GCD(b, a')
+        if(b == 0){
+            return a;
+        }
 
-    public int calculateWithEuclideanAlgorithm(){
-        return 0;
+        int prime = a % b;
+        return calculateWithEuclideanAlgorithm(b,prime);
     }
 
 }
